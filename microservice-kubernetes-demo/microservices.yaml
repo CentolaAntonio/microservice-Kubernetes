@@ -19,6 +19,7 @@ spec:
     spec:
       containers:
       - image: microservice-kubernetes-demo-apache
+        imagePullPolicy: Never
         name: apache
         ports:
         - containerPort: 80
@@ -48,6 +49,7 @@ spec:
     spec:
       containers:
       - image: microservice-kubernetes-demo-catalog
+        imagePullPolicy: Never
         name: catalog
         ports:
         - containerPort: 8080
@@ -77,6 +79,7 @@ spec:
     spec:
       containers:
       - image: microservice-kubernetes-demo-customer
+        imagePullPolicy: Never
         name: customer
         ports:
         - containerPort: 8080
@@ -106,6 +109,7 @@ spec:
     spec:
       containers:
       - image: microservice-kubernetes-demo-order
+        imagePullPolicy: Never
         name: order
         ports:
         - containerPort: 8080
