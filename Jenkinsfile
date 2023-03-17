@@ -7,7 +7,7 @@ pipeline {
     
     stages {
         
-        stage('Verifica Minikube') {
+        /*stage('Verifica Minikube') {
             steps {
                 script {
                     def minikubeStatus = sh(returnStatus: true, script: 'minikube status')
@@ -16,7 +16,7 @@ pipeline {
                     }
                 }
             }
-        }
+        }*/
         
         stage('Git clone') {
             steps {
