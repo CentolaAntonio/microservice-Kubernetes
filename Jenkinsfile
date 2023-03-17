@@ -20,7 +20,9 @@ pipeline {
         
         stage('Git clone') {
             steps {
-                git branch: 'main', url: 'https://github.com/CentolaAntonio/microservice-kubernetes'
+                git branch: 'master', 
+                    url: 'https://github.com/CentolaAntonio/microservice-kubernetes',
+                    credentialsId: ''
             }
         }
         
