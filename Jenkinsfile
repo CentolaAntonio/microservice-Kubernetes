@@ -45,9 +45,7 @@ pipeline {
             steps {
                 dir('microservice-kubernetes-demo') {
                     script{
-                        docker.withRegistry([credentialsId:'mydockertoken']){
-                            sh './docker-build.sh'
-                        }
+                         sh './docker-build.sh'
                     }
                 }
             }
