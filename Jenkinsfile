@@ -44,7 +44,7 @@ pipeline {
        stage('Build Images') {
             steps {
                 script {
-                    docker.withRegistry('', DOCKERHUB_CREDENTIALS ) {
+                    docker.withRegistry('', 'mydockertoken' ) {
                         dir('microservice-kubernetes-demo') {
                             sh './docker-build.sh'
                         }
