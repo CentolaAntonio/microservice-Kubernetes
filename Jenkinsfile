@@ -7,18 +7,16 @@ pipeline {
     
     stages {
         
-        stage('Verifica Minikube') {
+        /*stage('Verifica Minikube') {
             steps {
-                withKubeConfig([credentialsId: 'mykubeconfig']){
-                    script {
-                        def minikubeStatus = sh(returnStatus: true, script: 'minikube status')
-                        if (minikubeStatus != 0) {
-                            sh 'minikube start'
-                        }
+                script {
+                    def minikubeStatus = sh(returnStatus: true, script: 'minikube status')
+                    if (minikubeStatus != 0) {
+                        sh 'minikube start'
                     }
                 }
             }
-        }
+        }*/
         
         stage('Git clone') {
             steps {
