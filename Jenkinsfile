@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     environment {
-        DOCKERHUB_CREDENTIALS = credentials('mydockertoken')
+        DOCKERHUB_CREDENTIALS = 'mydockertoken'
     }
     
     stages {
@@ -20,7 +20,7 @@ pipeline {
         
         stage('Git clone') {
             steps {
-                git 'https://github.com/CentolaAntonio/microservice-kubernetes'
+                git branch: 'main', url: 'https://github.com/CentolaAntonio/microservice-kubernetes'
             }
         }
         
@@ -43,7 +43,9 @@ pipeline {
             steps {
                 dir('microservice-kubernetes-demo') {
                     script{
-                         sh './docker-build.sh'
+                        docker.withRegistry('', DOCKERHUB_CREDENTIALS ) {
+                            sh './docker-build.sh'
+                        }
                     }
                 }
             }
