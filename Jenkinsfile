@@ -69,8 +69,8 @@ pipeline {
                 // keep intermediate images as cache, only delete the final image
                 sh 'docker images -q | xargs --no-run-if-empty docker rmi'
             }
-        }
-    }*/
+        }*/
+    }
     
     post {
         always {
