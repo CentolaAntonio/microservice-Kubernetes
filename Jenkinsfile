@@ -32,12 +32,12 @@ pipeline {
             }
         }
         
-        stage('Login to DokerHub') {
+        /*stage('Login to DokerHub') {
             steps {
                 //sh'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERUB_CREDENTIALS_USR --password-stdin'
                 sh'echo dckr_pat_HOUrhfw2_BV8IRb_CEhFIfPSs5M | docker login -u antoniocentola --password-stdin'
             }
-        }
+        }*/
         
        stage('Build Images') {
             steps {
