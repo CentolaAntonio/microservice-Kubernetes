@@ -7,7 +7,7 @@ pipeline {
     
     stages {
         
-        /*stage('Verifica Minikube') {
+        stage('Verifica Minikube') {
             steps {
                 withKubeConfig([credentialsId: 'mykubeconfig']){
                     script {
@@ -18,7 +18,7 @@ pipeline {
                     }
                 }
             }
-        }*/
+        }
         
         stage('Git clone') {
             steps {
