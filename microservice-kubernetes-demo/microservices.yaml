@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - image: microservice-kubernetes-demo-apache
-        
+        imagePullPolicy: Never
         name: apache
         ports:
         - containerPort: 80
