@@ -44,10 +44,20 @@ pipeline {
        stage('Build Images') {
             steps {
                 script {
-                    docker.withRegistry('', 'mydockertoken' ) {
+                    docker.withRegistry('', DOCKERHUB_CREDENTIALS ) {
                         dir('microservice-kubernetes-demo') {
                             sh './docker-build.sh'
                         }
+                    }
+                }
+            }
+        }
+        
+        stage('Deploy') {
+            steps {
+                dir('microservice-kubernetes-demo') {
+                    withKubeConfig([credentialsId: 'mykubeconfig']){
+                        sh 'kubectl apply -f microservices.yaml'
                     }
                 }
             }
@@ -57,24 +67,14 @@ pipeline {
             steps {
                 dir('microservice-kubernetes-demo') {
                     withKubeConfig([credentialsId: 'mykubeconfig']){
-                        sh 'kubectl apply -f microservices.yaml'
-                    }
-                }
-            }
-        }*/
-        
-        stage('Deploy') {
-            steps {
-                dir('microservice-kubernetes-demo') {
-                    withKubeConfig([credentialsId: 'mykubeconfig']){
                         sh './kubernetes-deploy.sh'
                     }
                 }
             }
-        }        
+        }*/       
         
         
-        /*stage('Cleanup') {
+        stage('Cleanup') {
             steps {
                 echo 'Cleaning..'
                 echo 'Running docker rmi..'
@@ -82,7 +82,7 @@ pipeline {
                 // keep intermediate images as cache, only delete the final image
                 sh 'docker images -q | xargs --no-run-if-empty docker rmi'
             }
-        }*/
+        }
     }
     
     post {
