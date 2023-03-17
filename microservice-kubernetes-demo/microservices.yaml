@@ -18,8 +18,7 @@ spec:
         run: apache
     spec:
       containers:
-      - image: microservice-kubernetes-demo-apache
-        imagePullPolicy: Never
+      - image: docker.io/antoniocentola/microservice-kubernetes-demo-apache
         name: apache
         ports:
         - containerPort: 80
@@ -48,7 +47,7 @@ spec:
         run: catalog
     spec:
       containers:
-      - image: microservice-kubernetes-demo-catalog
+      - image: docker.io/antoniocentola/microservice-kubernetes-demo-catalog
         name: catalog
         ports:
         - containerPort: 8080
@@ -77,7 +76,7 @@ spec:
         run: customer
     spec:
       containers:
-      - image: microservice-kubernetes-demo-customer
+      - image: docker.io/antoniocentola/microservice-kubernetes-demo-customer
         name: customer
         ports:
         - containerPort: 8080
@@ -106,7 +105,7 @@ spec:
         run: order
     spec:
       containers:
-      - image: microservice-kubernetes-demo-order
+      - image: docker.io/antoniocentola/microservice-kubernetes-demo-order
         name: order
         ports:
         - containerPort: 8080
