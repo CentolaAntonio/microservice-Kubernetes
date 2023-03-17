@@ -53,7 +53,7 @@ pipeline {
             }
         }
         
-        stage('Deploy') {
+        /*stage('Deploy') {
             steps {
                 dir('microservice-kubernetes-demo') {
                     withKubeConfig([credentialsId: 'mykubeconfig']){
@@ -61,7 +61,18 @@ pipeline {
                     }
                 }
             }
-        }
+        }*/
+        
+        stage('Deploy') {
+            steps {
+                dir('microservice-kubernetes-demo') {
+                    withKubeConfig([credentialsId: 'mykubeconfig']){
+                        sh './kubernetes-deploy.sh'
+                    }
+                }
+            }
+        }        
+        
         
         /*stage('Cleanup') {
             steps {
