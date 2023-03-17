@@ -61,7 +61,7 @@ pipeline {
             }
         }
         
-        stage('Cleanup') {
+        /*stage('Cleanup') {
             steps {
                 echo 'Cleaning..'
                 echo 'Running docker rmi..'
@@ -70,7 +70,7 @@ pipeline {
                 sh 'docker images -q | xargs --no-run-if-empty docker rmi'
             }
         }
-    }
+    }*/
     
     post {
         always {
