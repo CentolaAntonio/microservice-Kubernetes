@@ -3,6 +3,7 @@ pipeline {
     
     environment {
         DOCKERHUB_CREDENTIALS = 'mydockertoken'
+        KUBE_CREDENTIALS = 'mykubeconfig'
     }
     
     stages {
@@ -56,7 +57,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 dir('microservice-kubernetes-demo') {
-                    withKubeConfig([credentialsId: 'mykubeconfig']){
+                    withKubeConfig([credentialsId: KUBE_CREDENTIALS]){
                         sh 'kubectl apply -f microservices.yaml'
                     }
                 }
@@ -66,7 +67,7 @@ pipeline {
         /*stage('Deploy') {
             steps {
                 dir('microservice-kubernetes-demo') {
-                    withKubeConfig([credentialsId: 'mykubeconfig']){
+                    withKubeConfig([credentialsId: KUBE_CREDENTIALS]){
                         sh './kubernetes-deploy.sh'
                     }
                 }
