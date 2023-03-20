@@ -35,13 +35,6 @@ pipeline {
             }
         }
         
-        /*stage('Login to DokerHub') {
-            steps {
-                //sh'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERUB_CREDENTIALS_USR --password-stdin'
-                sh'echo dckr_pat_HOUrhfw2_BV8IRb_CEhFIfPSs5M | docker login -u antoniocentola --password-stdin'
-            }
-        }*/
-        
        stage('Build Images') {
             steps {
                 script {
@@ -62,25 +55,11 @@ pipeline {
                     }
                 }
             }
-        }
-        
-        /*stage('Deploy') {
-            steps {
-                dir('microservice-kubernetes-demo') {
-                    withKubeConfig([credentialsId: KUBE_CREDENTIALS]){
-                        sh './kubernetes-deploy.sh'
-                    }
-                }
-            }
-        }*/       
+        }    
         
         
         /*stage('Cleanup') {
             steps {
-                echo 'Cleaning..'
-                echo 'Running docker rmi..'
-                echo 'Removing unused docker images..'
-                // keep intermediate images as cache, only delete the final image
                 sh 'docker images -q | xargs --no-run-if-empty docker rmi'
             }
         }*/
