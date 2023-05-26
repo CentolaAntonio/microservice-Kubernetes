@@ -23,5 +23,7 @@ RUN chown -R non_privileged_user:non_privileged_group /var/www/html
 # Impostazione dell'utente non privilegiato come utente predefinito
 USER non_privileged_user 
 
+HEALTHCHECK --interval=30s --timeout=10s --retries=3 CMD curl --fail http://localhost:8080/ || exit 1
+
 EXPOSE 80
 CMD apache2ctl -D FOREGROUND
