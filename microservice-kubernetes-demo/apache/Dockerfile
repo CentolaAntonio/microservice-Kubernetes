@@ -6,7 +6,9 @@ RUN apt-get update ; apt-get upgrade -y -qq
 
 # Install Apache + modules
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get install -y -qq --no-install-recommends apache2 && \
+
+RUN apt-get install -y -qq --no-install-recommends apache2=2.4.52-1ubuntu4.5 && \
+# RUN apt-get install -y -qq --no-install-recommends apache2 && \
     a2enmod proxy proxy_http proxy_ajp rewrite deflate headers proxy_connect proxy_html lbmethod_byrequests && \
     mkdir /var/lock/apache2 && mkdir /var/run/apache2
 
