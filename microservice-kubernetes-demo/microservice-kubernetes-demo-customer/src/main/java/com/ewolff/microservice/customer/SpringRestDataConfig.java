@@ -6,18 +6,31 @@ import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurerAdapter;
 
+// @Configuration
+// class SpringRestDataConfig extends RepositoryRestConfigurerAdapter {
+// 
+// 	@Bean
+// 	public RepositoryRestConfigurer repositoryRestConfigurer() {
+// 
+// 		return new RepositoryRestConfigurerAdapter() {
+// 			@Override
+// 			public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
+// 				config.exposeIdsFor(Customer.class);
+// 			}
+// 		};
+// 	}
+// 
+// }
 @Configuration
-class SpringRestDataConfig extends RepositoryRestConfigurerAdapter {
+class SpringRestDataConfig implements RepositoryRestConfigurer {
 
 	@Bean
 	public RepositoryRestConfigurer repositoryRestConfigurer() {
-
-		return new RepositoryRestConfigurerAdapter() {
+		return new RepositoryRestConfigurer() {
 			@Override
 			public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
 				config.exposeIdsFor(Customer.class);
 			}
 		};
 	}
-
 }
