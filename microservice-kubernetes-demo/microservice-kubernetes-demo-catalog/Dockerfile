@@ -13,7 +13,7 @@ COPY target/microservice-kubernetes-demo-catalog-0.0.1-SNAPSHOT.jar .
 # Impostazione dell'utente non privilegiato come utente predefinito
 # USER non_privileged_user
 
-HEALTHCHECK --interval=30s --timeout=10s --retries=3 CMD curl --fail http://localhost:8080/ || exit 1
+# HEALTHCHECK --interval=30s --timeout=10s --retries=3 CMD curl --fail http://localhost:8080/ || exit 1
 
 CMD /usr/bin/java -Xmx400m -Xms400m -jar microservice-kubernetes-demo-catalog-0.0.1-SNAPSHOT.jar
 
