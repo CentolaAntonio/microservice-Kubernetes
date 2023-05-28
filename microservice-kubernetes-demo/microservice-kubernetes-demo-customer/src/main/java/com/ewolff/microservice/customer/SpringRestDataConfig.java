@@ -23,6 +23,7 @@ import org.springframework.data.rest.core.event.ValidatingRepositoryEventListene
 // 	}
 
 // }
+
 @Configuration
 public class SpringRestDataConfig implements RepositoryRestConfigurer {
 
@@ -32,7 +33,7 @@ public class SpringRestDataConfig implements RepositoryRestConfigurer {
     }
 
     @Override
-    public void configureValidatingRepositoryEventListener(ValidatingRepositoryEventListener validatingListener) {
-        // Optional: Configure validating listener if needed
+    public void configureHttpMessageConverters(List<HttpMessageConverter<?>> converters) {
+        // Configura eventuali convertitori di messaggi HTTP se necessario
     }
 }
