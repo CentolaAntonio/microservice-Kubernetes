@@ -1,5 +1,5 @@
-FROM openjdk:11.0.2-jre-slim
-
+# FROM openjdk:11.0.2-jre-slim
+FROM openjdk:8u342-jre-slim
 # Creazione di un utente non privilegiato
 RUN groupadd -r non_privileged_group && useradd -r -g non_privileged_group non_privileged_user
 
