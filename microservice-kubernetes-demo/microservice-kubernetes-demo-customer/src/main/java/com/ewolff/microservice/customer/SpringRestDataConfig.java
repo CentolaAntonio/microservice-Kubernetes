@@ -9,12 +9,8 @@ import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurerAdapt
 @Configuration
 class SpringRestDataConfig extends RepositoryRestConfigurer {
 
-	
-		return new RepositoryRestConfigurer() {
-			@Override
-			public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
-				config.exposeIdsFor(Customer.class);
-			}
-		};
-
+	@Override
+	public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
+		config.exposeIdsFor(Customer.class);
+	}
 }
