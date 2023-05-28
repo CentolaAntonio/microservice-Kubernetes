@@ -12,7 +12,7 @@ RUN apt-get install -y -qq --no-install-recommends apache2 && \
     mkdir /var/lock/apache2 && mkdir /var/run/apache2
 
 # Create non-root user
-# RUN groupadd -r non_privileged_group && useradd -r -g non_privileged_group non_privileged_user
+RUN groupadd -r non_privileged_group && useradd -r -g non_privileged_group non_privileged_user
 
 # Config Apache
 COPY index.html /var/www/html/index.html
@@ -22,7 +22,7 @@ COPY 000-default.conf  /etc/apache2/sites-enabled/000-default.conf
 # RUN chown -R non_privileged_user:non_privileged_group /var/www/html
 
 # Impostazione dell'utente non privilegiato come utente predefinito
-# USER non_privileged_user 
+USER non_privileged_user 
 
 HEALTHCHECK --interval=30s --timeout=10s --retries=3 CMD curl --fail http://localhost:8080/ || exit 1
 
