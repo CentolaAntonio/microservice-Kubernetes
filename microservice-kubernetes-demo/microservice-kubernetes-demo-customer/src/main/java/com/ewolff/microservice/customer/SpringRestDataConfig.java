@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 class SpringRestDataConfig implements RepositoryRestConfigurer {
 
 	 @Override
-         default void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
+         public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
              config.exposeIdsFor(Customer.class);
 
     }
