@@ -7,17 +7,14 @@ import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurerAdapter;
 
 @Configuration
-class SpringRestDataConfig extends RepositoryRestConfigurerAdapter {
+class SpringRestDataConfig extends RepositoryRestConfigurer {
 
-	@Bean
-	public RepositoryRestConfigurer repositoryRestConfigurer() {
-
-		return new RepositoryRestConfigurerAdapter() {
+	
+		return new RepositoryRestConfigurer() {
 			@Override
 			public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
 				config.exposeIdsFor(Customer.class);
 			}
 		};
-	}
 
 }
