@@ -19,7 +19,7 @@ COPY index.html /var/www/html/index.html
 COPY 000-default.conf  /etc/apache2/sites-enabled/000-default.conf
 
 # Impostazione dei permessi corretti per i file e le directory
-# RUN chown -R non_privileged_user:non_privileged_group /var/www/html
+RUN chown -R non_privileged_user:non_privileged_group /var/www/html
 
 # Impostazione dell'utente non privilegiato come utente predefinito
 USER non_privileged_user 
