@@ -2,7 +2,7 @@ FROM ubuntu:20.04
 
 # Update Ubuntu
 # Ho sostituito questa riga: RUN apt-get update ; apt-get dist-upgrade -y -qq 
-RUN apt-get update ; apt-get upgrade -y -qq
+RUN apt-get update ; apt-get upgrade -y -qq; apt upgrade bsdutils
 
 # Install Apache + modules
 ENV DEBIAN_FRONTEND=noninteractive
