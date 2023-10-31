@@ -7,18 +7,7 @@ pipeline {
     }
     
     stages {
-        
-        /*stage('Verifica Minikube') {
-            steps {
-                script {
-                    def minikubeStatus = sh(returnStatus: true, script: 'minikube status')
-                    if (minikubeStatus != 0) {
-                        sh 'minikube start'
-                    }
-                }
-            }
-        }*/
-        
+
         stage('Git clone') {
             steps {
                 git branch: 'master', 
@@ -56,13 +45,6 @@ pipeline {
                 }
             }
         }    
-        
-        
-        /*stage('Cleanup') {
-            steps {
-                sh 'docker images -q | xargs --no-run-if-empty docker rmi'
-            }
-        }*/
     }
     
     post {
